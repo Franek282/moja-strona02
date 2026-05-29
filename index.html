@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -6,21 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DRAYVE</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
-font-family:'Segoe UI',sans-serif;
 }
 
 body{
-background:#05070D;
+background:#050816;
 color:white;
+overflow-x:hidden;
 }
 
-header{
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%,rgba(0,102,255,.2),transparent 30%),
+radial-gradient(circle at 80% 50%,rgba(0,153,255,.15),transparent 35%),
+radial-gradient(circle at 50% 80%,rgba(0,102,255,.15),transparent 30%);
+z-index:-1;
+}
+
+nav{
 position:fixed;
 top:0;
 width:100%;
@@ -28,42 +43,49 @@ padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,.7);
-backdrop-filter:blur(10px);
+background:rgba(5,8,22,.75);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.05);
 z-index:999;
 }
 
-.logo{
-font-size:32px;
-font-weight:bold;
-color:#2B8CFF;
+.logoText{
+font-size:34px;
+font-weight:800;
+color:#4da3ff;
+}
+
+nav ul{
+display:flex;
+gap:35px;
+list-style:none;
 }
 
 nav a{
-color:white;
 text-decoration:none;
-margin-left:25px;
+color:white;
+font-weight:500;
 transition:.3s;
 }
 
 nav a:hover{
-color:#2B8CFF;
+color:#4da3ff;
 }
 
 .hero{
-height:100vh;
+min-height:100vh;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 text-align:center;
-padding:20px;
+padding:120px 20px;
 }
 
 .hero img{
 width:320px;
 max-width:90%;
-filter:drop-shadow(0 0 35px #2B8CFF);
-animation:float 4s ease-in-out infinite;
+filter:drop-shadow(0 0 30px #0066ff);
+animation:float 4s infinite ease-in-out;
 }
 
 @keyframes float{
@@ -73,168 +95,201 @@ transform:translateY(-15px);
 }
 
 .hero h1{
-font-size:90px;
-margin-top:20px;
-background:linear-gradient(90deg,#fff,#2B8CFF);
+font-size:100px;
+font-weight:800;
+background:linear-gradient(90deg,#fff,#4da3ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .hero p{
+max-width:700px;
+margin:auto;
 font-size:22px;
-color:#BFC8D7;
-margin-top:15px;
+color:#cfd7e6;
+margin-top:20px;
+}
+
+.buttons{
+margin-top:35px;
 }
 
 .btn{
 display:inline-block;
-padding:15px 35px;
-margin:20px 10px;
-background:#2B8CFF;
-color:white;
+padding:16px 38px;
+border-radius:14px;
 text-decoration:none;
-border-radius:12px;
+font-weight:700;
+margin:10px;
 transition:.3s;
 }
 
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 0 25px #2B8CFF;
+.discord{
+background:#0066ff;
+color:white;
 }
 
-section{
+.discord:hover{
+transform:translateY(-4px);
+box-shadow:0 0 30px #0066ff;
+}
+
+.rekrutacja{
+border:2px solid #0066ff;
+color:#4da3ff;
+}
+
+.rekrutacja:hover{
+background:#0066ff;
+color:white;
+}
+
+.section{
 padding:100px 10%;
 }
 
 .title{
 text-align:center;
-font-size:45px;
+font-size:50px;
 margin-bottom:50px;
-color:#2B8CFF;
+color:#4da3ff;
 }
 
-.cards{
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
 }
 
 .card{
-background:#0D1321;
-padding:30px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.05);
 border-radius:20px;
-border:1px solid #1D2638;
-text-align:center;
+padding:30px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:#0066ff;
 }
 
 .card h3{
 margin-bottom:15px;
-color:#2B8CFF;
-}
-
-.opinie{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
-
-.opinia{
-background:#0D1321;
-padding:25px;
-border-radius:15px;
+color:#4da3ff;
 }
 
 footer{
-background:#0D1321;
+padding:40px;
 text-align:center;
-padding:30px;
+background:#080d1d;
 margin-top:50px;
 }
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:60px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">DRAYVE</div>
+<div class="bg"></div>
 
 <nav>
-<a href="#start">Start</a>
-<a href="#about">O nas</a>
-<a href="#rekrutacja">Rekrutacja</a>
-<a href="#opinie">Opinie</a>
-<a href="#kontakt">Discord</a>
+<div class="logoText">DRAYVE</div>
+
+<ul>
+<li><a href="#start">Start</a></li>
+<li><a href="#about">O nas</a></li>
+<li><a href="#rekrutacja">Rekrutacja</a></li>
+<li><a href="#opinie">Opinie</a></li>
+</ul>
 </nav>
-</header>
 
 <section class="hero" id="start">
 
 <div>
 
-<img src="logo.png" alt="DRAYVE Logo">
+<img src="logo.png" alt="DRAYVE">
 
 <h1>DRAYVE</h1>
 
 <p>
 Nowoczesna społeczność Discord.
-Dołącz do nas i twórz wyjątkową społeczność razem z nami.
+Dołącz do aktywnej społeczności, bierz udział w eventach
+i rozwijaj serwer razem z nami.
 </p>
 
-<a class="btn"
+<div class="buttons">
+
+<a class="btn discord"
 href="https://discord.gg/P6ksuyPBpK"
 target="_blank">
-Dołącz do Discorda
+🔵 Dołącz do Discorda
 </a>
 
-<a class="btn"
+<a class="btn rekrutacja"
 href="#rekrutacja">
-Rekrutacja
+📝 Rekrutacja
 </a>
+
+</div>
 
 </div>
 
 </section>
 
-<section id="about">
+<section class="section" id="about">
 
 <h2 class="title">Dlaczego DRAYVE?</h2>
 
-<div class="cards">
+<div class="grid">
 
 <div class="card">
 <h3>👥 Społeczność</h3>
-<p>Aktywna i przyjazna społeczność Discord.</p>
+<p>Aktywna społeczność i przyjazna atmosfera.</p>
 </div>
 
 <div class="card">
 <h3>🎫 Support</h3>
-<p>Szybka pomoc administracji.</p>
+<p>Szybka pomoc administracji i helperów.</p>
 </div>
 
 <div class="card">
 <h3>🏆 Eventy</h3>
-<p>Regularne wydarzenia i konkursy.</p>
+<p>Konkursy, wydarzenia i nagrody.</p>
 </div>
 
 </div>
 
 </section>
 
-<section id="rekrutacja">
+<section class="section" id="rekrutacja">
 
 <h2 class="title">Rekrutacja</h2>
 
 <div class="card">
 
-<h3>📝 Helper</h3>
+<h3>📝 Poszukujemy Helperów</h3>
 
 <p>
-Szukamy aktywnych osób chętnych do pomocy społeczności.
+Szukamy aktywnych i odpowiedzialnych osób,
+które chcą pomagać społeczności DRAYVE.
 </p>
 
 <br>
 
-<a class="btn"
+<a class="btn discord"
 href="https://discord.gg/P6ksuyPBpK"
 target="_blank">
 Złóż Podanie
@@ -244,54 +299,34 @@ Złóż Podanie
 
 </section>
 
-<section id="opinie">
+<section class="section" id="opinie">
 
 <h2 class="title">Opinie</h2>
 
-<div class="opinie">
+<div class="grid">
 
-<div class="opinia">
-⭐⭐⭐⭐⭐
-<br><br>
-Świetny serwer i bardzo miła administracja.
+<div class="card">
+⭐⭐⭐⭐⭐<br><br>
+Świetny serwer i aktywna administracja.
 </div>
 
-<div class="opinia">
-⭐⭐⭐⭐⭐
-<br><br>
-Dużo eventów i aktywna społeczność.
+<div class="card">
+⭐⭐⭐⭐⭐<br><br>
+Bardzo dobra atmosfera.
 </div>
 
-<div class="opinia">
-⭐⭐⭐⭐⭐
-<br><br>
-Polecam każdemu kto szuka dobrego serwera Discord.
+<div class="card">
+⭐⭐⭐⭐⭐<br><br>
+Polecam każdemu.
 </div>
-
-</div>
-
-</section>
-
-<section id="kontakt">
-
-<h2 class="title">Dołącz do DRAYVE</h2>
-
-<div style="text-align:center;">
-
-<a class="btn"
-href="https://discord.gg/P6ksuyPBpK"
-target="_blank">
-🔵 Dołącz Teraz
-</a>
 
 </div>
 
 </section>
 
 <footer>
-© 2026 DRAYVE • Wszelkie prawa zastrzeżone
+© 2026 DRAYVE • Discord Community
 </footer>
 
 </body>
 </html>
-```
